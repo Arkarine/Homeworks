@@ -207,13 +207,15 @@ public class Demo {
 
         List<Person> listP = Arrays.asList(p_1, p_2, p_3, p_4);
 
-        int sum = listP.stream().map(Person::getAge)
-        //int sum = listP.stream().map(a -> a.getAge())
+        Optional<Integer> reduce = listP.stream()
+                .map(Person::getAge)
+                //int sum = listP.stream().map(a -> a.getAge())
                 .filter(p -> p > 17)
-                .reduce(Integer::sum)
-                //.reduce((acc, age) -> acc +age)
-                .get();
-        System.out.println(sum);
+                .reduce(Integer::sum);
+        if(reduce.isPresent()){
+            Integer sum = reduce.get();
+            System.out.println(sum);
+        }
 
         System.out.println("-----------10------------------");
         /*
