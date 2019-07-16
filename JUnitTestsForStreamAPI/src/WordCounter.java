@@ -6,10 +6,11 @@ public class WordCounter {
 количество слов, начинающихся на заданную букву.
      */
 
-    public static long countWords(String st, String letter){
+
+    public static long countWords(String st, String letter) throws IllegalArgumentException {
+
         if(st == null || letter == null){
-            System.out.println("Input arguments are wrong!");
-            return 0;
+            throw new IllegalArgumentException("Input arguments are wrong!");
         }
 
         String[] stArray = st.split(" ");

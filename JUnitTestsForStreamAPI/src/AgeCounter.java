@@ -14,22 +14,14 @@ public class AgeCounter {
             return 0;
         }
 
-        for (Person p : listPersons) {
-            if(p == null){
-                System.out.println("Wrong Object");
-                return 0;
-            }
-        }
-
-        Optional<Integer> reduce = listPersons.stream()
+        Integer reduce = listPersons.stream()
+                .filter(p -> p!= null)
                 .map(Person::getAge)
                 .filter(p -> p > 17)
-                .reduce(Integer::sum);
-        int sum = 0;
-        if(reduce.isPresent()){
-            sum = reduce.get();
-        }
-        return sum;
+                .reduce(Integer::sum).orElse(0);
+
+        return reduce;
+
     }
 
 }

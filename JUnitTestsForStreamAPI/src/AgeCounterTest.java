@@ -34,6 +34,6 @@ public class AgeCounterTest {
     @Test
     public void testCountAgesForNullObject(){
         int result = AgeCounter.countAges(listPersons1);
-        Assert.assertEquals(0,result);
+        Assert.assertEquals(60,result);
     }
 }
