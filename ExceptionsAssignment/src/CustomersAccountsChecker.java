@@ -1,6 +1,11 @@
 import java.util.List;
 
 public class CustomersAccountsChecker {
+    private Printable p;
+
+    public CustomersAccountsChecker(Printable p) {
+        this.p = p;
+    }
 
     public static void checkAge(int age) throws InvalidAgeExeption {
         if(age <= 17){
@@ -20,7 +25,7 @@ public class CustomersAccountsChecker {
         }
     }
 
-    public static void checkCustomersList(List<Customer> list) throws InvalidAgeExeption, InvalidIbanLengthExeption, InvalidIbanCharactersExeption {
+    public void checkCustomersList(List<Customer> list) throws InvalidAgeExeption, InvalidIbanLengthExeption, InvalidIbanCharactersExeption {
         for (Customer l: list ) {
             checkAge(l.getAge());
             checkIbanLength(l.getAccount().getIban());

@@ -4,11 +4,12 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+
         BankAccount b1 = new BankAccount("DE21236789454521");
         BankAccount b2 = new BankAccount("DE57968413287455");
         BankAccount b3 = new BankAccount("DE41119874522266");
         BankAccount b4 = new BankAccount("DE33970048751100");
-        BankAccount b5 = new BankAccount("DE77899003487534");
+        BankAccount b5 = new BankAccount("DE77899003487522");
 
         Customer c1 = new Customer("Inga", 54, b1);
         Customer c2 = new Customer("Anna", 24, b2);
@@ -18,11 +19,15 @@ public class Main {
 
         List<Customer> list = Arrays.asList(c1, c2, c3, c4, c5);
 
+        Printable p = new PrintSout();
+        CustomersAccountsChecker c = new CustomersAccountsChecker(p);
+
+
         try{
-            CustomersAccountsChecker.checkCustomersList(list);
+            c.checkCustomersList(list);
         }
         catch (InvalidAgeExeption | InvalidIbanLengthExeption | InvalidIbanCharactersExeption exeption) {
-            System.out.println(exeption.getMessage());
+            p.print(exeption.getMessage());
         }
 
     }
