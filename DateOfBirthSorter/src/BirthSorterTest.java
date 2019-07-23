@@ -25,4 +25,25 @@ public class BirthSorterTest {
         List<String> actual = BirthSorter.sortBirthDate();
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void sortBirthDatesTest1(){
+
+        /*
+        /The content of the file/
+
+        Caroline Herschel,1956-05-25,
+        Elizabeth Blackburn,1894-08-30,
+        Max Born,1998-07-18,
+        Albert Einstein,1879-03-14
+        */
+
+        List<String> expected = Arrays.asList(
+                "[Albert Einstein, 1879-03-14]",
+                "[Elizabeth Blackburn, 1894-08-30]",
+                "[Caroline Herschel, 1956-05-25]",
+                "[Max Born, 1998-07-18]");
+        List<String> actual = BirthSorter.sortBirthDate1();
+        Assert.assertEquals(expected,actual);
+    }
 }
