@@ -14,8 +14,15 @@ public class Person {
         return dateOfBirth;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
-        return "["+ name +", " + dateOfBirth +"]";
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 }
