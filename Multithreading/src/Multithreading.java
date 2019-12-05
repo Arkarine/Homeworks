@@ -26,10 +26,10 @@ public class Multithreading {
 
 class Counter {
     private int count;
-    public int increment(){
+    public synchronized int increment(){
         return count++;
     }
-    public int decrement(){
+    public synchronized int decrement(){
         return count--;
     }
 
