@@ -6,13 +6,9 @@ public class Multithreading {
 
         Counter counter = new Counter();
 
-        Thread threadIncrement = new Thread(() -> {
-            System.out.println(counter.increment());
-        });
+        Thread threadIncrement = new Thread(counter::increment);
 
-        Thread threadDecrement = new Thread(() -> {
-            System.out.println(counter.decrement());
-        });
+        Thread threadDecrement = new Thread(counter::decrement);
 
         threadIncrement.start();
         threadIncrement.join();
@@ -26,11 +22,15 @@ public class Multithreading {
 
 class Counter {
     private int count;
-    public synchronized int increment(){
-        return count++;
+    public synchronized void increment(){
+        for (int i = 0; i < 100; i++) {
+            count++;
+        }
     }
-    public synchronized int decrement(){
-        return count--;
+    public synchronized void decrement(){
+        for (int i = 0; i < 100; i++) {
+            count--;
+        }
     }
 
     public int getCount() {
