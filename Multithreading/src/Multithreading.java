@@ -15,8 +15,10 @@ public class Multithreading {
         });
 
         threadIncrement.start();
-        threadDecrement.join();
+        threadIncrement.join();
         threadDecrement.start();
+        threadDecrement.join();
+
         System.out.println(counter.getCount());
 
     }
